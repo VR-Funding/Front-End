@@ -11,6 +11,9 @@ import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 import RegisterStartup from "./components/RegisterStartup";
 import RegisterInvestor from "./components/RegisterInvestor";
+import StartUpList from "./components/StartUpList"
+import StartUpCard from "./components/StartUpCard"
+import PrivateRoute from "./components/PrivateRoute"
 
 function App() {
   return (
@@ -23,6 +26,8 @@ function App() {
           <Route path="/register" component={Register}></Route>
           <Route path="/registerStartup" component={RegisterStartup}></Route>
           <Route path="/registerInvestor" component={RegisterInvestor}></Route>
+          <PrivateRoute path="/StartUpList" component={StartUpList}></PrivateRoute>
+          <PrivateRoute path="/StartUpCard" component={StartUpCard}></PrivateRoute>
         </Switch>
       </Router>
     </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import RegisterStartup from './RegisterStartup'
-import RegisterInvestor from './RegisterInvestor'
+
 
 const Register = () => {
     return(
