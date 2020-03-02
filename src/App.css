@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+form{
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  position: relative;
+  left: 40%;
+  top: 20%;
+}
+input{
+  border:2px solid rgb(157, 157, 157);
+  height: 5vh;
+  width: 38vh;
+  margin: 5px;
+  border-radius: 2px;
+}
+.InvestorRegister{
+  border-radius: 50px;
+  width: 15vw;
+  background-color: green;
+  color: white;
+  position: relative;
+  left: 10%;
+  font-size: 30px;
+}
