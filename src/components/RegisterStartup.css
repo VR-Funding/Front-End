@@ -1,0 +1,67 @@
+.container, .bottom {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h3, label {
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+form {
+    width: 45vw;
+}
+
+input {
+    height: 35px;
+    border-radius: 20px;
+    width: 70%;
+    font-size: 1.2rem;
+}
+
+select {
+    height: 35px;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.founderRegisterImage {    
+    height: 70vh;
+    /* position: relative; */
+    margin: 0px;
+    padding: 10px;
+    width: 45vw;
+    bottom: 40px;
+}
+
+.row1, .row2 {
+    display: flex;
+    justify-content: space-between; 
+    margin: 5px 0;
+}
+
+.range {
+    margin: 10px 0;
+    background-color: rgb(212, 244, 255);
+}
+
+.companyLocation, .fundraisingPeriod {
+    display: flex;
+    flex-direction: column;
+}
+
+.emailInput {
+    width: 80%;
+}
+
+button {    
+    border-radius: 50px;
+    width: 60%;
+    background-color: green;
+    color: white;
+    position: relative;
+    margin-top: 20px;
+    font-size: 2rem;
+    align-self: center;
+}
