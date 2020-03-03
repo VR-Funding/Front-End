@@ -1,13 +1,37 @@
 import * as React from 'react';
 import { Range } from 'react-range';
 
+// export interface ITrackBackground {
+//   min: number;
+//   max: number;
+//   values: number[];
+//   colors: string[];
+//   direction?: Direction;
+//   rtl?: boolean;
+// }
+
+// function getTrackBackground({
+//   values,
+//   colors,
+//   min,
+//   max,
+//   direction = Direction.Right,
+//   rtl = false
+// }: ITrackBackground) {
+//   if (rtl && direction === Direction.Right) {
+//     direction = Direction.Left;
+//   } else if (rtl && Direction.Left) {
+//     direction = Direction.Right;
+//   }
+// }
+
 const STEP = 1000;
 const MIN = 1000;
-const MAX = 100000;
+const MAX = 1000000;
 
 class LabeledTwoThumbs extends React.Component {
   state = {
-    values: [30000, 70000]
+    values: [150000, 850000]
   };
   render() {
     return (
@@ -30,7 +54,7 @@ class LabeledTwoThumbs extends React.Component {
               onTouchStart={props.onTouchStart}
               style={{
                 ...props.style,
-                height: '36px',
+                height: '60px',
                 display: 'flex',
                 width: '100%'
               }}
