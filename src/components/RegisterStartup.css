@@ -29,7 +29,7 @@ select {
 .founderRegisterImage {    
     height: 70vh;
     /* position: relative; */
-    margin: 0px;
+    margin: 100px 0;
     padding: 10px;
     width: 45vw;
     bottom: 40px;
