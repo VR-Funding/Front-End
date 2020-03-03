@@ -1,22 +1,30 @@
 import axios from "axios";
+export const LOGIN_START = "LOGIN_START";
+export const FETCH_DATA_START = "FETCH_DATA_START";
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+export const FETCH_DATA_FAILURE = "FETCH_DATA_FAIL";
 
-export const GET_JOKE = "GET_JOKE";
-export const JOKE = "JOKE";
-export const JOKE_ERROR = "JOKE_ERROR";
+export const login = creds => dispatch => {
+  dispatch({ type: LOGIN_START });
+  return axios
+    .post("https://venture-backend.herokuapp.com", creds)
+    .then(res => localStorage.setItem("token", res.data.payload));
+};
 
-export const getJoke = () => dispatch => {
-  dispatch({ type: GET_JOKE });
+export const getData = () => dispatch => {
+  dispatch({ type: FETCH_DATA_START });
   axios
-    // .get(
-    //   "https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous?format=xml&blacklistFlags=nsfw,sexist&type=single"
-    // )
-    .get('http://api.icndb.com/jokes/random')
-    .then(response => {
-      dispatch({ type: JOKE, payload: response.data.value.joke});
-      console.log("response!!!!", response.data.value.joke);
+    .get("https://venture-backend.herokuapp.com", {
+      headers: { Authorization: localStorage.getItem("token") }
     })
-
+    .then(res => {
+      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
+      
+    })
     .catch(err => {
-      dispatch({ type: JOKE_ERROR, payload: err });
+      if (err.response.status === 403) {
+        localStorage.removeItem("token");
+      }
+      dispatch({ type: FETCH_DATA_FAILURE, payload: err.response });
     });
 };
