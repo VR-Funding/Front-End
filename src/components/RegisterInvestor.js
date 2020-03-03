@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-
+import Capture from "./VR Register pic.png"
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup
@@ -19,8 +19,14 @@ const RegisterInvestor = () => {
       };
     
   return (
+      <div className = "investorcont">
+              <img className = "registerImage"src = {Capture}/>
+
+
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>
+      <h1 className = "top-h1"> Register</h1>
+
         
         <input type="email" name="email" placeholder = "  Email" ref={register} />
       </label>
@@ -32,8 +38,10 @@ const RegisterInvestor = () => {
       </label>
       {errors.password && <p>{errors.password.message}</p>}
       
-      <button className = "InvestorRegister"type="submit"> Register</button>
+      <button className = "InvestorRegister"type="submit"> REGISTER</button>
     </form>
+       
+    </div>
   );
     
 }
