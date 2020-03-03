@@ -7,18 +7,19 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAIL";
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
-    .post("https://venture-backend.herokuapp.com/auth/login", creds)
+    .post("https://venture-backend.herokuapp.com", creds)
     .then(res => localStorage.setItem("token", res.data.payload));
 };
 
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios
-    .get("http://localhost:5000/api/friends", {
+    .get("https://venture-backend.herokuapp.com", {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
+      
     })
     .catch(err => {
       if (err.response.status === 403) {
