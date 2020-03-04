@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./StartUpCard.css";
-import logo from "./images/logo1.png";
+import logo from "../images/logo1.png";
 
 const Navigation = () => {
   return (
