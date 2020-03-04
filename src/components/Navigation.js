@@ -14,8 +14,8 @@ const Navigation = () => {
   return (
     <div className = "Link">
       <img className = "logo" src = {logo}/>
-     <ul> <Link to="/Login">Login</Link></ul>
-      <ul> <Link to="/Register">Register</Link></ul>
+     <ul> <Link to="/login">Login</Link></ul>
+      <ul> <Link to="/register-investor">Register</Link></ul>
    
      <ul className = "Logoutnav"> <button onClick={Lougout}>Log Out</button></ul>
 
@@ -26,3 +26,4 @@ const Navigation = () => {
 
 
 export default Navigation
+ 

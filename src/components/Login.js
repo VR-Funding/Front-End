@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import styled from 'styled-components'
+
 
 
 
@@ -23,7 +23,7 @@ const Login = props => {
       .then(res =>  {
         console.log(res)
         localStorage.setItem("token", res.data.token);
-        props.history.push("/StartUpList");
+        props.history.push("/startup-list");
       });
   };
   return (
