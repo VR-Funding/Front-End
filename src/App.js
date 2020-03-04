@@ -23,10 +23,10 @@ function App() {
           <Redirect exact from="/" to="/login"></Redirect>
           <Route path="/login" component={Login}></Route>
           <Route path="/register" component={Register}></Route>
-          <Route path="/registerStartup" component={RegisterStartup}></Route>
-          <Route path="/registerInvestor" component={RegisterInvestor}></Route>
-          <PrivateRoute path="/StartUpList" component={StartUpList}></PrivateRoute>
-          <PrivateRoute path="/StartUpCard" component={StartUpCard}></PrivateRoute>
+          <Route path="/register-startup" component={RegisterStartup}></Route>
+          <Route path="/register-investor" component={RegisterInvestor}></Route>
+          <PrivateRoute path="/startup-list" component={StartUpList}></PrivateRoute>
+          <PrivateRoute path="/startup-card" component={StartUpCard}></PrivateRoute>
         </Switch>
       </Router>
     </div>

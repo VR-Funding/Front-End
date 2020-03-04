@@ -4,9 +4,12 @@ import * as yup from "yup";
 import Capture from "./VR Register pic.png";
 import axios from "axios";
 const schema = yup.object().shape({
+  fullName: yup.string().required(),
   email: yup.string().required(),
-  password: yup.string().required()
+  password: yup.string().required(),
+  investor: yup.boolean().required()
 });
+
 const RegisterInvestor = props => {
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema
@@ -43,6 +46,17 @@ const RegisterInvestor = props => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <h1 className="top-h1"> Register</h1>
+
+          <label>
+          <input
+            type="text"
+            name="fullName"
+            // onChange={handleChange}
+            placeholder="Full Name"
+            ref={register}
+          />
+        </label>
+          
           <input
             type="email"
             name="email"
@@ -62,14 +76,21 @@ const RegisterInvestor = props => {
           />
         </label>
         {errors.password && <p>{errors.password.message}</p>}
-        <label>
-          <input
-            type="text"
-            name="fullName"
-            // onChange={handleChange}
-            placeholder="Full Name"
-            ref={register}
-          />
+        
+        <label>I am an investor
+          <input 
+            type='radio' 
+            name='investor'
+            value='true'
+            ref={register} />        
+        </label>
+
+        <label>I am a founder
+          <input 
+            type='radio' 
+            name='investor'
+            value='false'
+            ref={register} />            
         </label>
         <label>Investor
           <input 

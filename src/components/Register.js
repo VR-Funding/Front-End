@@ -7,10 +7,10 @@ const Register = () => {
     <div>
         <h1> Register </h1>
         
-        <Link to="/RegisterStartup">
+        <Link to="/register-startup">
         Register as Startup
         </Link><br/>
-        <Link to="/RegisterInvestor">
+        <Link to="/register-investor">
         Register as Investor
         </Link>
 

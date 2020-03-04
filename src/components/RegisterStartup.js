@@ -12,7 +12,7 @@ const RegisterStartup = props => {
   const onSubmit = data => {
     axios("https://venture-backend.herokuapp.com/api/startups").then(res => {
       console.log(res);
-      props.history.push("/StartUpList");
+      props.history.push("/startup-list");
     });
     console.log("Who??", data);
   };
