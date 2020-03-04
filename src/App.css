@@ -1,6 +1,8 @@
 .App {
   text-align: center;
 }
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -73,7 +75,12 @@ input{
 .investorcont{
   display: flex;
 }
+
 .Link{
+  background-color:lightgray;
+  width: 95vw;
+
+  padding: 20px;
+  padding-right: 90px;
   position: relative;
-  left: 13%;
-}
+
