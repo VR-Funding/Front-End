@@ -71,14 +71,16 @@ const RegisterInvestor = props => {
           <input 
             type='radio' 
             name='investor'
-            value='true' />            
+            value='true'
+            ref={register} />        
         </label>
 
         <label>I am a founder
           <input 
             type='radio' 
             name='investor'
-            value='false' />            
+            value='false'
+            ref={register} />            
         </label>
 
         <button className="InvestorRegister" type="submit">
