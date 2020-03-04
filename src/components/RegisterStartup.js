@@ -14,7 +14,7 @@ const RegisterStartup = () => {
   return (
     <div className="container">
     <div>
-      <h1> Create your Profile </h1>
+      <h1> Create your Project </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='row1'>
           <label>Company name
