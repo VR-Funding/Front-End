@@ -14,7 +14,6 @@ import RegisterInvestor from "./components/RegisterInvestor";
 import StartUpList from "./components/StartUpList"
 import StartUpCard from "./components/StartUpCard"
 import PrivateRoute from "./components/PrivateRoute"
-
 function App() {
   return (
     <div className="App">
