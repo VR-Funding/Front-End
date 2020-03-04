@@ -83,49 +83,4 @@ input{
   padding: 20px;
   padding-right: 90px;
   position: relative;
-  right: 2%;
-  bottom:3% ;
-  display: flex;
- text-decoration: none;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  
-  }
-  .Link ul{
-    font-size: 20px;
-    padding-left: 40px;
-    color: black;
 
-
-    font-family: 'Didact Gothic', sans-serif;
-
-
-    font-style: Regular;
-    line-height: 40px;
-    align: Center;
-    vertical-align: Center;
-    
-}
-.Link a{
-  text-decoration: none;
-  color: black;
-}
-.Logoutnav a{
-
-
-  font-family: 'Passion One', cursive;
-font-size: 30px;
-  font-style: Regular;
-  line-height: 40px;
-  align: Center;
-  vertical-align: Center;
-  fill: Solid;
-color:#62BC4E
-}
-
-.logo{
-    position: relative;
-    margin-right:430px;
-    padding-left: 90px;
-    
-}
