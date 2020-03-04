@@ -21,12 +21,22 @@ const RegisterInvestor = props => {
   //     [e.target.name]: e.target.value
   //   });
   // };
+
+  const [investor, setInvestor] = useState(true)
+  const onChange = () =>{
+    setInvestor(!investor)
+  }
+  const dashboard = () =>{
+    investor ? props.history.push("/StartUpList") : props.history.push("/RegisterStartup") 
+  }
   const onSubmit = data => {
     axios
       .post("https://venture-backend.herokuapp.com/api/auth/register", data)
       .then(res => {
         console.log(res);
-        props.history.push("/startup-list");   
+      dashboard()
+        // props.history.push("/StartUpList");
+   
       });
     console.log(data);
   };
@@ -81,6 +91,23 @@ const RegisterInvestor = props => {
             name='investor'
             value='false'
             ref={register} />            
+        </label>
+        <label>Investor
+          <input 
+          type="radio"
+          name="investor"
+          value={true}
+          ref={register}
+          />
+        </label>
+        <label>Founder
+          <input 
+          type="radio"
+          name="investor"
+          value={false}
+          onChange={onChange}
+          ref={register}
+          />
         </label>
 
         <button className="InvestorRegister" type="submit">
