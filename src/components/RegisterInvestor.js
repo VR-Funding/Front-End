@@ -21,7 +21,7 @@ const RegisterInvestor = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>
       <h1 className = "top-h1"> Register</h1>
-        <input type="email" name="email" placeholder = "  EmaiI" ref={register} />
+        <input type="email" name="email" placeholder = "  Email" ref={register} />
       </label>
       {errors.email && <p>{errors.email.message}</p>}
       <label>
