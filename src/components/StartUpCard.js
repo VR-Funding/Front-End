@@ -3,8 +3,7 @@ import React from "react";
 import StartUpList from "./StartUpList"
 import styled from "styled-components"
 import "./StartUpCard.css";
-import imgg from "./images/trending.svg";
-import swan from "./images/swan.png";
+
 
 const ProjectNames = styled.h4`
 position:relative;
@@ -58,8 +57,11 @@ const StartUpCard = (props) => {
   
   return (
     <DivStyle>
-         <Imgg src = {imgg} className = "imgg"/>
-      <img className = "swan"src = {swan}/>
+      <div>
+      <img className="swan" src="../images/logo1.png"/>
+ 
+
+      </div>
 
 
     <ProjectNames>{props.startUp.projectName}</ProjectNames>

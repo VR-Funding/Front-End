@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from '../utils/axiosWithAuth'
 import StartUpCard from "./StartUpCard";
-import StartUpPage from "./StartUpCard";
 
 
 const StartUpList = () => {
