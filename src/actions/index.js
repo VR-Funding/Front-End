@@ -3,6 +3,7 @@ export const LOGIN_START = "LOGIN_START";
 export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const FETCH_DATA_FAILURE = "FETCH_DATA_FAIL";
+export const TOGGLE_NAV = "TOGGLE_NAV";
 
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });

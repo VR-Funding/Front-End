@@ -9,7 +9,7 @@
     "axios": "^0.19.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-hook-form": "^4.10.0",
+    "react-hook-form": "^4.10.1",
     "react-range": "^1.5.3",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
