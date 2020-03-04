@@ -19,29 +19,17 @@ const RegisterStartup = props => {
 
   return (
     <div className="container">
-      <div>
-        <h1> Create your Profile </h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="row1">
-            <label>
-              Company name
-              <input
-                type="text"
-                name="projectName"
-                ref={register({ required: true, maxLength: 80 })}
-              />
-            </label>
-            <label>
-              Valuation Cap
-              <input
-                type="number"
-                name="valuationCap"
-                step="1000"
-                min="0"
-                ref={register({ required: true })}
-              />
-            </label>
-          </div>
+    <div>
+      <h1> Create your Project </h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='row1'>
+          <label>Company name
+            <input type="text" name="companyName" ref={register({required: true, maxLength: 80})} />
+          </label>
+          <label>Valuation Cap
+            <input type="number" name="valuation" step="1000" min='0' ref={register({required: true, })} />
+          </label>
+        </div>
 
           <div className="row2">
             <label>
