@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import styled from 'styled-components'
+
+
 
 const Login = props => {
   const [data, setData] = useState({});
@@ -25,7 +28,7 @@ const Login = props => {
   };
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1>Login Test</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -48,6 +51,7 @@ const Login = props => {
         <br />
 
         <button onClick={handleSubmit}>log in</button>
+        <p>Don't have an account?  Sign Up.</p>
       </form>
     </div>
   );
