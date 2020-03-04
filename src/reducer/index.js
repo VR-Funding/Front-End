@@ -2,7 +2,9 @@ import {
   LOGIN_START,
   FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILURE
+  FETCH_DATA_FAILURE, 
+  TOGGLE_NAV,
+
 } from '../actions/index'
 
 const initialState = {
@@ -10,7 +12,8 @@ const initialState = {
   error: '',
   errorStatusCode: null,
   fetchingData: false,
-  isLoggingIn: false
+  isLoggingIn: false,
+  isAuthenticated: false,
 }
 
 const Reducer = (state = initialState, action) => {
@@ -40,6 +43,18 @@ const Reducer = (state = initialState, action) => {
               errorStatusCode: action.payload.status
           }
       }
+    //   case LOGOUT:
+    //     return {
+    //       ...state,
+    //       isAuthenticated: false,
+    //       isLoading: false,
+    //       userID: null
+    //     };
+      case TOGGLE_NAV:
+      return {
+        ...state,
+        drawerIsVisible: !state.drawerIsVisible
+      };
       default: 
           return state
   }
