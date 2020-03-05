@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./FounderDashboard.css";
+// import "./FounderDashboard.css";
+import styled from "styled-components"
 
 const FounderDashboard = () => {
     return (
