@@ -26,7 +26,7 @@ const RegisterStartup = props => {
     state: "",
     country: "",
     email: "",
-    postDate: "",
+    postDate: "2020-03-12",
     startDate: "",
     endDate: "",
     active: false
@@ -222,7 +222,7 @@ const RegisterStartup = props => {
                   ref={register({ required: true })}
                 />
               </label>
-              <label>
+              {/* <label>
                 POST
                 <input
                   type="date"
@@ -231,7 +231,7 @@ const RegisterStartup = props => {
                   value={startup.postDate}
                   ref={register({ required: true })}
                 />
-              </label>
+              </label> */}
             </div>
           </div>
 
