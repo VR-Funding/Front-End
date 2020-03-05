@@ -7,6 +7,7 @@ const axiosWithAuth = () => {
     baseURL: "https://venture-backend.herokuapp.com/api/",
     headers: {
       Authorization: token
+      
     }
   });
 };
