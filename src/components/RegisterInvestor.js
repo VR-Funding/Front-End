@@ -75,24 +75,9 @@ const RegisterInvestor = props => {
             ref={register}
           />
         </label>
-        {errors.password && <p>{errors.password.message}</p>}
+        {errors.password && <p>{errors.password.message}</p>}        
         
         <label>I am an investor
-          <input 
-            type='radio' 
-            name='investor'
-            value='true'
-            ref={register} />        
-        </label>
-
-        <label>I am a founder
-          <input 
-            type='radio' 
-            name='investor'
-            value='false'
-            ref={register} />            
-        </label>
-        <label>Investor
           <input 
           type="radio"
           name="investor"
@@ -100,7 +85,8 @@ const RegisterInvestor = props => {
           ref={register}
           />
         </label>
-        <label>Founder
+        
+        <label>I am a founder
           <input 
           type="radio"
           name="investor"
