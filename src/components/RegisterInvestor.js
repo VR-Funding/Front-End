@@ -15,12 +15,7 @@ const RegisterInvestor = props => {
     validationSchema: schema
   });
   const [data, setData] = useState({});
-  // const handleChange = e => {
-  //   setData({
-  //     ...data,
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
+
 
   const [investor, setInvestor] = useState(true)
   const onChange = () =>{
