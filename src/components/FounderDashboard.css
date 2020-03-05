@@ -1,0 +1,47 @@
+.container, .investors, .buttons {
+    display: flex;  
+}
+
+nav, .sidebar, .main {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    margin: 30px 0;
+    font-size: 1.5rem;
+}
+
+.main {
+    justify-content: center;
+    align-items: center;
+}
+
+.main span {
+    font-size: 1rem;
+}
+
+.main h1 {
+    font-size: 3rem;
+    /* color: rgb(255, 44, 72); */
+    text-align: center;
+}
+
+.main h2 {
+    font-size: 2rem;
+    /* color: rgb(255, 44, 72); */
+    text-align: center;
+}
+
+.investors h3 {
+    text-align: center;
+    margin: 0 30px;
+}
+
+.main button {
+    margin: 20px 0;
+}
+
+
+

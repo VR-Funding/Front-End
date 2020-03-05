@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Range } from "react-range";
 import GoalRange from "./Range";
@@ -8,25 +8,41 @@ import "./RegisterStartup.css";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import StartUpCard from "./StartUpCard";
-import { registerFormContext } from '../components/contexts/registerFormContext'
 
-const RegisterStartup = props => {
+const EditForm = props => {
   const { register, handleSubmit, errors } = useForm();
-
- 
-  const {startup, updateStartup}=useContext(registerFormContext)
+  const userId = window.localStorage.getItem("userId")
+  const [startup, setStartup] = useState({
+    userId: JSON.parse(userId),
+    // userId: 10,
+    projectName: "",
+    headline: "",
+    valuationCap: null,
+    discount: null,
+    minInvestment: null,
+    contract: "Crowd SAFE",
+    goalLow: null,
+    goalHigh: null,
+    city: "",
+    state: "",
+    country: "",
+    email: "",
+    postDate: "2020-03-12",
+    startDate: "",
+    endDate: "",
+    active: false
+  });
 
   const handleChange = e => {
-    const userIdLocal = window.localStorage.getItem("userId");
-    updateStartup({...startup, userId:JSON.parse(userIdLocal) , [e.target.name]: e.target.value})
-    
+    setStartup({
+      ...startup,
+      [e.target.name]: e.target.value
+    });
   };
 
   const onSubmit = data => {
-
-    
     axiosWithAuth()
-      .post("startups", startup)
+      .put(`startups/${userId}`, startup)
       .then(res => {
         console.log(res);
         props.history.push("founder-dashboard");
@@ -41,7 +57,7 @@ const RegisterStartup = props => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
             <div>
-              <label>
+            {/* <label>
               Company id
               <input
                 type="number"
@@ -50,7 +66,7 @@ const RegisterStartup = props => {
                 value={startup.userId}
                 ref={register({ required: true, maxLength: 80 })}
               />
-            </label> 
+            </label>  */}
             </div>
             <label>
               Company name
@@ -58,7 +74,7 @@ const RegisterStartup = props => {
                 type="text"
                 name="projectName"
                 onChange={handleChange}
-                value={startup.projectName}
+                 value={startup.projectName}
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
@@ -68,7 +84,7 @@ const RegisterStartup = props => {
                 type="text"
                 name="headline"
                 onChange={handleChange}
-                value={startup.headline}
+               value={startup.headline}
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
@@ -78,7 +94,7 @@ const RegisterStartup = props => {
                 type="number"
                 name="valuationCap"
                 onChange={handleChange}
-                value={startup.valuationCap}
+                 value={startup.valuationCap}
                 step="1000"
                 min="0"
                 ref={register({ required: true })}
@@ -94,7 +110,7 @@ const RegisterStartup = props => {
                 name="minInvestment"
                 step="100"
                 min="0"
-                value={startup.minInvestment}
+                 value={startup.minInvestment}
                 onChange={handleChange}
                 ref={register({ required: true, min: 1000 })}
               />
@@ -121,7 +137,7 @@ const RegisterStartup = props => {
                 type="number"
                 name="discount"
                 onChange={handleChange}
-                value={startup.discount}
+                 value={startup.discount}
                 min="0"
                 max="100"
                 ref={register({
@@ -207,7 +223,7 @@ const RegisterStartup = props => {
                   ref={register({ required: true })}
                 />
               </label>
-              <label>
+              {/* <label>
                 POST
                 <input
                   type="date"
@@ -216,7 +232,7 @@ const RegisterStartup = props => {
                   value={startup.postDate}
                   ref={register({ required: true })}
                 />
-              </label>
+              </label> */}
             </div>
           </div>
 
@@ -240,4 +256,4 @@ const RegisterStartup = props => {
   );
 };
 
-export default RegisterStartup;
+export default EditForm;
