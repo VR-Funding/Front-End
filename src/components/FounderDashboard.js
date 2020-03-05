@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./FounderDashboard.css";
 import styled from "styled-components"
+import EditForm from "./EditForm";
 
 const FounderDashboard = () => {
-    return (
+
+    const [showModal, setShowModal] = useState(false)
+
+    const closeModal = () => {
+        setShowModal(false);
+    }
+      return (
         <div className='container'>
             <div className='sidebar'>
                 <div className='greet'>
@@ -30,8 +37,11 @@ const FounderDashboard = () => {
                     <h2><span>Location: </span>Denver, COLORADO</h2>
                 </div>
                 <div className='buttons'>
-                    <button>EDIT</button>
+                    <button onClick={()=> setShowModal(!showModal)}>EDIT</button>
                     <button>DELETE</button>
+
+                    <div> { showModal ? <EditForm closeModal={closeModal}/> : null}
+                        </div>
                 </div>
             </div>
         </div>
