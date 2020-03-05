@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.Link{
+/* .Link{
 right: 2%;
 bottom:3% ;
 display: flex;
@@ -44,7 +44,7 @@ background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   margin-right: 430px;
   padding-left: 90px;
-}
+} */
 
 form {
   display: flex;
