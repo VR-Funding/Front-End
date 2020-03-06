@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Range } from "react-range";
-import GoalRange from "./Range";
-import * as yup from "yup";
-import Capture from "./andrew-neel-QLqNalPe0RA-unsplash.jpg";
-import "./RegisterStartup.css";
-import axios from "axios";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import StartUpCard from "./StartUpCard";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+// import { Range } from "react-range";
+// import GoalRange from './Range';
+// import * as yup from "yup";
+import Capture from './andrew-neel-QLqNalPe0RA-unsplash.jpg';
+import './RegisterStartup.css';
+import axiosWithAuth from '../utils/axiosWithAuth';
+// import StartUpCard from "./StartUpCard";
 
 const EditForm = props => {
-  const { register, handleSubmit, errors } = useForm();
-  const userId = window.localStorage.getItem("userId")
-  // const [props.startUps, setStartUp] = useState([])
-//   useEffect(() => {
-//     const userId = localStorage.getItem("userId")
-//     axiosWithAuth()
-//     .get(`https://venture-backend.herokuapp.com/api/startups/users/${userId}`)
-//     .then(res=> props.setStartUp(res.data[0]))
-    
-// },[])
+  const { register, handleSubmit } = useForm();
+  const userId = window.localStorage.getItem('userId');
+
   const handleChange = e => {
-    props.setStartUps({
-      ...props.startUps,
+    props.setStartup({
+      ...props.startup,
       [e.target.name]: e.target.value
     });
   };
@@ -32,9 +24,8 @@ const EditForm = props => {
       .put(`startups/${userId}`, data)
       .then(res => {
         console.log(res);
-        props.history.push("founder-dashboard");
+        props.history.push('founder-dashboard');
       });
-    console.log("Who??", data);
   };
 
   return (
@@ -43,25 +34,13 @@ const EditForm = props => {
         <h1> Create your Project </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
-            <div>
-            {/* <label>
-              Company id
-              <input
-                type="number"
-                name="userId"
-                onChange={handleChange}
-                value={startup.userId}
-                ref={register({ required: true, maxLength: 80 })}
-              />
-            </label>  */}
-            </div>
             <label>
               Company name
               <input
                 type="text"
                 name="projectName"
                 onChange={handleChange}
-                 value={props.startUps.projectName}
+                value={props.startup.projectName}
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
@@ -71,7 +50,7 @@ const EditForm = props => {
                 type="text"
                 name="headline"
                 onChange={handleChange}
-               value={props.startUps.headline}
+                value={props.startup.headline}
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
@@ -81,7 +60,7 @@ const EditForm = props => {
                 type="number"
                 name="valuationCap"
                 onChange={handleChange}
-                 value={props.startUps.valuationCap}
+                value={props.startup.valuationCap}
                 step="1000"
                 min="0"
                 ref={register({ required: true })}
@@ -97,7 +76,7 @@ const EditForm = props => {
                 name="minInvestment"
                 step="100"
                 min="0"
-                 value={props.startUps.minInvestment}
+                value={props.startup.minInvestment}
                 onChange={handleChange}
                 ref={register({ required: true, min: 1000 })}
               />
@@ -110,11 +89,9 @@ const EditForm = props => {
                 onChange={handleChange}
                 ref={register({ required: true })}
               >
-                <option value={props.startUps.contract}>Crowd SAFE</option>
+                <option value={props.startup.contract}>Crowd SAFE</option>
 
-                <option value={props.startUps.contract}>Crowd IPA</option>
-                {/* onChange={handleChanges}
-                value={data.role} */}
+                <option value={props.startup.contract}>Crowd IPA</option>
               </select>
             </label>
 
@@ -124,7 +101,7 @@ const EditForm = props => {
                 type="number"
                 name="discount"
                 onChange={handleChange}
-                 value={props.startUps.discount}
+                value={props.startup.discount}
                 min="0"
                 max="100"
                 ref={register({
@@ -145,18 +122,19 @@ const EditForm = props => {
               type="number"
               name="goalLow"
               onChange={handleChange}
-              value={props.startUps.goalLow}
+              value={props.startup.goalLow}
               ref={register({ required: true })}
-            />{" "}
+            />{' '}
             <label htmlFor="goalHigh">CITY</label>
-            <input className='goalHigh'
+            <input
+              className="goalHigh"
               type="number"
               name="goalHigh"
               onChange={handleChange}
-              value={props.startUps.goalHigh}
+              value={props.startup.goalHigh}
               ref={register({ required: true })}
             />
-            <GoalRange />
+            {/* <GoalRange /> */}
           </div>
 
           <div className="bottom">
@@ -167,7 +145,7 @@ const EditForm = props => {
                 type="text"
                 name="city"
                 onChange={handleChange}
-                value={props.startUps.city}
+                value={props.startup.city}
                 ref={register({ required: true })}
               />
               <label htmlFor="state">STATE</label>
@@ -175,7 +153,7 @@ const EditForm = props => {
                 type="text"
                 name="state"
                 onChange={handleChange}
-                value={props.startUps.state}
+                value={props.startup.state}
                 ref={register({ required: true })}
               />
               <label htmlFor="country">COUNTRY</label>
@@ -183,7 +161,7 @@ const EditForm = props => {
                 type="text"
                 name="country"
                 onChange={handleChange}
-                value={props.startUps.country}
+                value={props.startup.country}
                 ref={register({ required: true })}
               />
             </div>
@@ -196,7 +174,7 @@ const EditForm = props => {
                   type="date"
                   name="startDate"
                   onChange={handleChange}
-                  value={props.startUps.startDate}
+                  value={props.startup.startDate}
                   ref={register({ required: true })}
                 />
               </label>
@@ -206,23 +184,12 @@ const EditForm = props => {
                   type="date"
                   name="endDate"
                   onChange={handleChange}
-                  value={props.startUps.endDate}
+                  value={props.startup.endDate}
                   ref={register({ required: true })}
                 />
               </label>
-              {/* <label>
-                POST
-                <input
-                  type="date"
-                  name="postDate"
-                  onChange={handleChange}
-                  value={startup.postDate}
-                  ref={register({ required: true })}
-                />
-              </label> */}
             </div>
           </div>
-
           <label>
             Email:
             <input
@@ -230,15 +197,21 @@ const EditForm = props => {
               type="email"
               name="email"
               onChange={handleChange}
-              value={props.startUps.email}
+              value={props.startup.email}
               ref={register({ required: true, pattern: /^\S+@\S+$/i })}
             />
           </label>
-
-          <button type="submit" onClick={()=>{props.setShowModal(false)}}>Save</button>
+          <button
+            type="submit"
+            onClick={() => {
+              props.setShowModal(false);
+            }}
+          >
+            Save
+          </button>
         </form>
       </div>
-      <img className="founderRegisterImage" src={Capture} />
+      <img className="founderRegisterImage" src={Capture} alt="Founder" />
     </div>
   );
 };
