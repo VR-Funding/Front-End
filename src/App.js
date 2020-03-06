@@ -19,36 +19,29 @@ import { registerFormContext } from './components/contexts/registerFormContext'
 
 function App() {
   const initialState = {
-    userId: null,
+    userId: localStorage.getItem("token").length === 0 ? undefined : localStorage.getItem("userId"),
     // userId: 10,
     projectName: "",
     headline: "",
-    valuationCap: null,
-    discount: null,
-    minInvestment: null,
+    valuationCap: "",
+    discount: "",
+    minInvestment: "",
     contract: "Crowd SAFE",
-    goalLow: null,
-    goalHigh: null,
+    goalLow: "",
+    goalHigh: "",
     city: "",
     state: "",
     country: "",
     email: "",
-    postDate: "2020-03-12",
     startDate: "",
-    endDate: "",
-    active: false
+   
   }
 
   const [startup, setStartup] = useState(initialState);
-  const updateStartup = updates => {
-    setStartup({
-      
-      updates
-    });
-  } 
+ 
   return (
     <div className="App">
-      <registerFormContext.Provider value={{startup, updateStartup}}>
+      <registerFormContext.Provider value={{startup, setStartup}}>
       <Router>
         <Navigation />
         <Switch>

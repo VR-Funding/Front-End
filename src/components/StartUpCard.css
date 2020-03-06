@@ -1,11 +1,14 @@
-div{
+
+
+/* div{
     display: flex;
     flex-wrap:wrap;
 margin:10px;
 }
 h1,h2,h3,h4,h5,h6,p{
 margin: 6px;
-}
+} */
+
 
 /* .sc-AxiKw.cpCTGz.imgg{
     width: 26vw;
@@ -13,7 +16,8 @@ margin: 6px;
     
     bottom: 3%;
 } */
-.swan{
+
+/* .swan{
     width: 4vw;
     position: relative;
     bottom: 8%;
@@ -40,4 +44,5 @@ body{
   }
   .rights{
       color: hotpink;
-  }
+  } */
+

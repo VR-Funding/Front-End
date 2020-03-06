@@ -1,7 +1,6 @@
-
 import React from "react";
-import StartUpList from "./StartUpList"
-import styled from "styled-components"
+import StartUpList from "./StartUpList";
+import styled from "styled-components";
 import "./StartUpCard.css";
 import swan from "../images/swan.png" 
 import trending from "../images/trending.png" 
@@ -69,6 +68,7 @@ const StartUpCard = (props) => {
 
       </div>
 
+      <h4>{props.startUp.projectName}</h4>
 
     <ProjectNames>{props.startUp.projectName}</ProjectNames>
     
