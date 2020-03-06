@@ -9,7 +9,7 @@ import trending from "../images/trending.png"
 const ProjectNames = styled.h4`
 position:relative;
 right:10%;
-bottom:10%
+bottom:1%
 
 `
 const DivStyle = styled.div`
@@ -17,7 +17,7 @@ const DivStyle = styled.div`
 // background:white;
 margin:30px;
 display:flex;
-height:50vh;
+height:70vh;
 width:26vw;
 flex-direction:column;
 color:black;
@@ -43,7 +43,14 @@ text-align: center;
 
 const Imgg = styled.img`
 
-width:300px
+width:26vw
+`
+const Imggg = styled.img`
+
+width:10vw;
+height:3vh;
+position:relative;
+bottom:60px
 `
 const Add = styled.p`
 color:gray;
@@ -63,12 +70,11 @@ const StartUpCard = (props) => {
     <DivStyle>
       <div>
         <Imgg className = "trendsing" src = {trending}/>
-      <img className = "logo11" src={swan}/>
+      <Imggg className = "logo11" src={swan}/>
  
 
       </div>
 
-      <h4>{props.startUp.projectName}</h4>
 
     <ProjectNames>{props.startUp.projectName}</ProjectNames>
     
