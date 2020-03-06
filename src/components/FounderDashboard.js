@@ -1,22 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./FounderDashboard.css";
 import styled from "styled-components"
 import EditForm from "./EditForm";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
-const FounderDashboard = () => {
+const FounderDashboard = (props) => {
 
     const [showModal, setShowModal] = useState(false)
+    const [startUps, setStartUps] = useState([])
+    useEffect(() => {
+        const userId = localStorage.getItem("userId")
+        axiosWithAuth()
+        .get(`https://venture-backend.herokuapp.com/api/startups/users/${userId}`)
+        .then(res=> setStartUps(res.data[0]))
+        
+    },[])
+    console.log(startUps)
 
-    const closeModal = () => {
-        setShowModal(false);
+    const deleteStartup = () => {
+        axiosWithAuth()
+          .delete(`startups/${startUps.id}`, startUps.id)
+          .then(res => {
+            console.log(res);
+            props.history.push("register-startup");
+          });
     }
       return (
         <div className='container'>
             <div className='sidebar'>
                 <div className='greet'>
                     <img src=''/>
-                    <h3>Hello,<br/>Karen</h3>
                 </div>
                 <nav>
                     <a href='#'>DASHBOARD</a>
@@ -27,23 +41,27 @@ const FounderDashboard = () => {
                     <a href='#'>LOGOUT</a>
                 </nav>
             </div>
-            <div className='main'>
-                <h1><span>Founder: </span>Karen Anderson</h1>
-                <div className='investors'>
-                    <h3>Total investors:<p>0</p></h3>            
-                    <h3>Time left:<p>0 DAYS</p></h3>
-                </div>
+            {/* {startUps.map(item=>( */}
+                <div className='main' key="item.id">
+                    <h1>Project Name: {startUps.projectName}</h1>
+            <h1>Founder: {startUps.email}</h1>
+                
                 <div className='location'>             
-                    <h2><span>Location: </span>Denver, COLORADO</h2>
+            <h1>Location: {startUps.city}, {startUps.state}, {startUps.country}</h1>
                 </div>
+              
+     
                 <div className='buttons'>
                     <button onClick={()=> setShowModal(!showModal)}>EDIT</button>
-                    <button>DELETE</button>
+                    <button onClick={()=> deleteStartup()}>DELETE</button>
 
-                    <div> { showModal ? <EditForm closeModal={closeModal}/> : null}
+                    <div> { showModal ? <EditForm setShowModal={ setShowModal} setStartUps={setStartUps} startUps={startUps}/> : null}
                         </div>
                 </div>
             </div>
+            
+            
+            
         </div>
     )
 }

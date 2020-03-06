@@ -10,14 +10,30 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import StartUpCard from "./StartUpCard";
 import { registerFormContext } from '../components/contexts/registerFormContext'
 
+const schema = yup.object().shape({
+  projectName: yup.string().required(),
+  headline: yup.string().required(),
+  valuationCap: yup.string().required(),
+  minInvestment: yup.string().required(),
+  discount: yup.string().required(),
+  goalLow: yup.string().required(),
+  goalHigh: yup.string().required(),
+  city: yup.string().required(),
+  state: yup.string().required(),
+  country: yup.string().required(),
+  email: yup.string().required()
+});
+
 const RegisterStartup = props => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({
+    validationSchema: schema
+  });
 
  
   const {startup, setStartup}=useContext(registerFormContext)
   
-    const userIdLocal = JSON.parse(window.localStorage.getItem("userId"));
-    const userIdString = JSON.stringify(userIdLocal)
+    // const userIdLocal = JSON.parse(window.localStorage.getItem("userId"));
+    // const userIdString = JSON.stringify(userIdLocal)
     
 
 
@@ -26,7 +42,7 @@ const RegisterStartup = props => {
    
     
       setStartup({
-        userId:userIdString, 
+        // userId:userIdString, 
         [e.target.name]: e.target.value
       });
    
@@ -36,12 +52,13 @@ const RegisterStartup = props => {
    
     console.log(window.localStorage.getItem("userId"))
     axiosWithAuth()
-      .post("https://venture-backend.herokuapp.com/api/startups", data)
+      .post("startups", data)
       .then(res => {
         console.log(res);
         props.history.push("founder-dashboard");
       });
     console.log("Who??", data);
+     
   };
 
   return (
@@ -51,7 +68,7 @@ const RegisterStartup = props => {
         <form className='form' onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
             <div>
-              {/* <label class="">
+              <label class="">
               Company id
               <input
                 type="text"
@@ -60,7 +77,7 @@ const RegisterStartup = props => {
                 value={startup.userId}
                 ref={register({ required: true, maxLength: 80 })}
               />
-            </label>  */}
+            </label> 
             </div>
             <label>
               Company name
@@ -218,10 +235,7 @@ const RegisterStartup = props => {
                   onChange={handleChange}
                   value={startup.endDate}
                   ref={register({ required: true })}
-                />
-
-              
-
+                />              
             </div>
           </div>
 
