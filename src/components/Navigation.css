@@ -1,0 +1,140 @@
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html, body {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Passion One';
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+h3 {
+  font-size:6.4rem ;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+p, a, .btn {
+  font-size: 1.6rem;
+}
+
+
+#navbar{
+  width: 1440px;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  height: 100px;
+}
+#nav{
+  position: relative;
+  max-width:1296px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#logoa{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
+#nav h1{
+  color:#62BC4E;
+  font-size: 40px;
+}
+#nav img {
+  height: 70px;
+}
+#links{
+  display: flex;
+  max-width: 60%;
+  justify-content: space-between;
+}
+#links a:hover{
+  font-size: 50px;
+}
+#links a {
+  font-family: 'Passion one';
+  color: #62BC4E;
+  font-size: 36px;
+} 
+#nav #logo{
+  height: 100px;
+}
+#logoa {
+  margin: 0px 0px;
+}
+
+#homelink, #aboutlink, #contactlink {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 26px;
+  color: white;
+}
