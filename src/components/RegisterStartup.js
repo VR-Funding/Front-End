@@ -220,7 +220,7 @@ const RegisterStartup = props => {
                   ref={register({ required: true })}
                 />
 
-              </label>
+              
 
             </div>
           </div>
