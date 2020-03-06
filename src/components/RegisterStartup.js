@@ -10,8 +10,24 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import StartUpCard from "./StartUpCard";
 import { registerFormContext } from '../components/contexts/registerFormContext'
 
+const schema = yup.object().shape({
+  projectName: yup.string().required(),
+  headline: yup.string().required(),
+  valuationCap: yup.string().required(),
+  minInvestment: yup.string().required(),
+  discount: yup.string().required(),
+  goalLow: yup.string().required(),
+  goalHigh: yup.string().required(),
+  city: yup.string().required(),
+  state: yup.string().required(),
+  country: yup.string().required(),
+  email: yup.string().required()
+});
+
 const RegisterStartup = props => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({
+    validationSchema: schema
+  });
 
  
   const {startup, setStartup}=useContext(registerFormContext)
