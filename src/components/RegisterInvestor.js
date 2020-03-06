@@ -26,11 +26,11 @@ const RegisterInvestor = props => {
   const onChange = () =>{
     setInvestor(!investor)
   }
-  const dashboard = () =>{
-    
-    investor ? props.history.push("/startup-list") : props.history.push("/register-startup") 
-
+  
+  const dashboard = () =>{    
+    investor ? props.history.push("/login") : props.history.push("/register-startup")
   }
+
   const onSubmit = data => {
     axios
       .post("https://venture-backend.herokuapp.com/api/auth/register", data)
@@ -59,7 +59,7 @@ const RegisterInvestor = props => {
             ref={register}
           />
         </label>
-          
+        <label>  
           <input
             type="email"
             name="email"
@@ -99,7 +99,7 @@ const RegisterInvestor = props => {
           ref={register}
           />
         </label>
-
+      </label>
         <button className="InvestorRegister" type="submit">
           {" "}
           REGISTER

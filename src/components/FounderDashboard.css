@@ -15,6 +15,7 @@
 nav, .sidebar, .main {
     display: flex;
     flex-direction: column;
+    margin-top: 21px;
 }
 
 .greet {
