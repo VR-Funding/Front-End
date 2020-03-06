@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Range } from "react-range";
 import GoalRange from "./Range";
@@ -12,37 +12,24 @@ import StartUpCard from "./StartUpCard";
 const EditForm = props => {
   const { register, handleSubmit, errors } = useForm();
   const userId = window.localStorage.getItem("userId")
-  const [startup, setStartup] = useState({
-    userId: JSON.parse(userId),
-    // userId: 10,
-    projectName: "",
-    headline: "",
-    valuationCap: null,
-    discount: null,
-    minInvestment: null,
-    contract: "Crowd SAFE",
-    goalLow: null,
-    goalHigh: null,
-    city: "",
-    state: "",
-    country: "",
-    email: "",
-    postDate: "2020-03-12",
-    startDate: "",
-    endDate: "",
-    active: false
-  });
-
+  // const [props.startUps, setStartUp] = useState([])
+//   useEffect(() => {
+//     const userId = localStorage.getItem("userId")
+//     axiosWithAuth()
+//     .get(`https://venture-backend.herokuapp.com/api/startups/users/${userId}`)
+//     .then(res=> props.setStartUp(res.data[0]))
+    
+// },[])
   const handleChange = e => {
-    setStartup({
-      ...startup,
+    props.setStartUps({
+      ...props.startUps,
       [e.target.name]: e.target.value
     });
   };
 
   const onSubmit = data => {
     axiosWithAuth()
-      .put(`startups/${userId}`, startup)
+      .put(`startups/${userId}`, data)
       .then(res => {
         console.log(res);
         props.history.push("founder-dashboard");
@@ -74,7 +61,7 @@ const EditForm = props => {
                 type="text"
                 name="projectName"
                 onChange={handleChange}
-                 value={startup.projectName}
+                 value={props.startUps.projectName}
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
@@ -84,7 +71,7 @@ const EditForm = props => {
                 type="text"
                 name="headline"
                 onChange={handleChange}
-               value={startup.headline}
+               value={props.startUps.headline}
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
@@ -94,7 +81,7 @@ const EditForm = props => {
                 type="number"
                 name="valuationCap"
                 onChange={handleChange}
-                 value={startup.valuationCap}
+                 value={props.startUps.valuationCap}
                 step="1000"
                 min="0"
                 ref={register({ required: true })}
@@ -110,7 +97,7 @@ const EditForm = props => {
                 name="minInvestment"
                 step="100"
                 min="0"
-                 value={startup.minInvestment}
+                 value={props.startUps.minInvestment}
                 onChange={handleChange}
                 ref={register({ required: true, min: 1000 })}
               />
@@ -123,9 +110,9 @@ const EditForm = props => {
                 onChange={handleChange}
                 ref={register({ required: true })}
               >
-                <option value={startup.contract}>Crowd SAFE</option>
+                <option value={props.startUps.contract}>Crowd SAFE</option>
 
-                <option value={startup.contract}>Crowd IPA</option>
+                <option value={props.startUps.contract}>Crowd IPA</option>
                 {/* onChange={handleChanges}
                 value={data.role} */}
               </select>
@@ -137,7 +124,7 @@ const EditForm = props => {
                 type="number"
                 name="discount"
                 onChange={handleChange}
-                 value={startup.discount}
+                 value={props.startUps.discount}
                 min="0"
                 max="100"
                 ref={register({
@@ -158,7 +145,7 @@ const EditForm = props => {
               type="number"
               name="goalLow"
               onChange={handleChange}
-              value={startup.goalLow}
+              value={props.startUps.goalLow}
               ref={register({ required: true })}
             />{" "}
             <label htmlFor="goalHigh">CITY</label>
@@ -166,7 +153,7 @@ const EditForm = props => {
               type="number"
               name="goalHigh"
               onChange={handleChange}
-              value={startup.goalHigh}
+              value={props.startUps.goalHigh}
               ref={register({ required: true })}
             />
             <GoalRange />
@@ -180,7 +167,7 @@ const EditForm = props => {
                 type="text"
                 name="city"
                 onChange={handleChange}
-                value={startup.city}
+                value={props.startUps.city}
                 ref={register({ required: true })}
               />
               <label htmlFor="state">STATE</label>
@@ -188,7 +175,7 @@ const EditForm = props => {
                 type="text"
                 name="state"
                 onChange={handleChange}
-                value={startup.state}
+                value={props.startUps.state}
                 ref={register({ required: true })}
               />
               <label htmlFor="country">COUNTRY</label>
@@ -196,7 +183,7 @@ const EditForm = props => {
                 type="text"
                 name="country"
                 onChange={handleChange}
-                value={startup.country}
+                value={props.startUps.country}
                 ref={register({ required: true })}
               />
             </div>
@@ -209,7 +196,7 @@ const EditForm = props => {
                   type="date"
                   name="startDate"
                   onChange={handleChange}
-                  value={startup.startDate}
+                  value={props.startUps.startDate}
                   ref={register({ required: true })}
                 />
               </label>
@@ -219,7 +206,7 @@ const EditForm = props => {
                   type="date"
                   name="endDate"
                   onChange={handleChange}
-                  value={startup.endDate}
+                  value={props.startUps.endDate}
                   ref={register({ required: true })}
                 />
               </label>
@@ -243,12 +230,12 @@ const EditForm = props => {
               type="email"
               name="email"
               onChange={handleChange}
-              value={startup.email}
+              value={props.startUps.email}
               ref={register({ required: true, pattern: /^\S+@\S+$/i })}
             />
           </label>
 
-          <button type="submit">REGISTER</button>
+          <button type="submit" onClick={()=>{props.setShowModal(false)}}>Save</button>
         </form>
       </div>
       <img className="founderRegisterImage" src={Capture} />
