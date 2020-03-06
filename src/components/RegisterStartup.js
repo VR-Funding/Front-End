@@ -218,14 +218,7 @@ const RegisterStartup = props => {
                   onChange={handleChange}
                   value={startup.endDate}
                   ref={register({ required: true })}
-<<<<<<< HEAD
                 />              
-=======
-                />
-
-              
-
->>>>>>> 4f66b3bfe8ab088bf72d3b7cb35b8996371ea5cb
             </div>
           </div>
 
