@@ -1,21 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
-    return(
+  return (
     <div>
-        <h1> Register </h1>
-        
-        <Link to="/register-startup">
-        Register as Startup
-        </Link><br/>
-        <Link to="/register-investor">
-        Register as Investor
-        </Link>
+      <h1> Register </h1>
 
+      <Link to="/register-user">Register as Startup</Link>
+      <br />
+      <Link to="/register-user">Register as Investor</Link>
     </div>
-    )
-}
+  );
+};
 
-export default Register
+export default Register;

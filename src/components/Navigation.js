@@ -1,7 +1,8 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import styled from 'styled-components'
-import "./Navigation.css";
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+// import styled from 'styled-components';
+import './Navigation.css';
+import { authContext } from '../components/contexts/authContext';
 
 // const NavBar = styled.div`
 //  z-index: 10;
@@ -46,9 +47,14 @@ import "./Navigation.css";
 // `;
 
 const Navigation = () => {
+  const { loggedIn, setLoggedIn } = useContext(authContext);
+
+  const logoutFunction = () => {
+    localStorage.clear();
+    setLoggedIn(false);
+  };
 
   return (
-
     <div id="navbar">
       <nav id="nav">
         <div id="logo">
@@ -57,16 +63,41 @@ const Navigation = () => {
             <h1>VentureR</h1>
           </a>
         </div>
-        <a id="homelink" href="https://venturer.netlify.com/index.html">Home</a>
-        <a id="aboutlink" href="https://venturer.netlify.com/about.html">About us</a>
-        <a id="contactlink" href="#">Contact us</a>
-        <div id="links"><Link to="/login">Login</Link>
-        <Link to="/register-investor">| Register</Link></div>
+        <a id="homelink" href="https://venturer.netlify.com/index.html">
+          Home
+        </a>
+        <a id="aboutlink" href="https://venturer.netlify.com/about.html">
+          About us
+        </a>
+        <a id="contactlink" href="#">
+          Contact us
+        </a>
+        <div id="links">
+          {loggedIn ? (
+            <NavLink
+              onClick={() => {
+                logoutFunction();
+              }}
+              to="/login"
+              activeClassName="active-nav"
+            >
+              Logout
+            </NavLink>
+          ) : null}
+          {!loggedIn ? (
+            <NavLink to="/login" activeClassName="active-nav">
+              Login
+            </NavLink>
+          ) : null}
+          {!loggedIn ? (
+            <NavLink to="/register-user" activeClassName="active-nav">
+              Register
+            </NavLink>
+          ) : null}
+        </div>
       </nav>
     </div>
   );
 };
 
-
-
-export default Navigation
+export default Navigation;

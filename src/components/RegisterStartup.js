@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
-import { useForm } from "react-hook-form";
-import { Range } from "react-range";
-import GoalRange from "./Range";
-import * as yup from "yup";
-import Capture from "./andrew-neel-QLqNalPe0RA-unsplash.jpg";
-import "./RegisterStartup.css";
-import axios from "axios";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import StartUpCard from "./StartUpCard";
-import { registerFormContext } from '../components/contexts/registerFormContext'
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+// import { Range } from 'react-range';
+// import GoalRange from './Range';
+import * as yup from 'yup';
+import Capture from './andrew-neel-QLqNalPe0RA-unsplash.jpg';
+import './RegisterStartup.css';
+import axiosWithAuth from '../utils/axiosWithAuth';
+// import StartUpCard from './StartUpCard';
+import { registerFormContext } from '../components/contexts/registerFormContext';
 
 const schema = yup.object().shape({
   projectName: yup.string().required(),
@@ -25,59 +24,46 @@ const schema = yup.object().shape({
 });
 
 const RegisterStartup = props => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit } = useForm({
     validationSchema: schema
   });
 
- 
-  const {startup, setStartup}=useContext(registerFormContext)
-  
-    // const userIdLocal = JSON.parse(window.localStorage.getItem("userId"));
-    // const userIdString = JSON.stringify(userIdLocal)
-    
-
-
+  const { startup, setStartup } = useContext(registerFormContext);
 
   const handleChange = e => {
-   
-    
-      setStartup({
-        // userId:userIdString, 
-        [e.target.name]: e.target.value
-      });
-   
+    setStartup({
+      ...startup,
+      [e.target.name]: e.target.value
+    });
   };
 
   const onSubmit = data => {
-   
-    console.log(window.localStorage.getItem("userId"))
     axiosWithAuth()
-      .post("startups", data)
+      .post('startups', data)
       .then(res => {
-        console.log(res);
-        props.history.push("founder-dashboard");
+        console.log(res.data[0]);
+        window.localStorage.setItem('startupId', res.data[0].id);
+        props.history.push('founder-dashboard');
       });
-    console.log("Who??", data);
-     
   };
 
   return (
     <div className="container">
       <div>
         <h1> Create your Project </h1>
-        <form className='form' onSubmit={handleSubmit(onSubmit)}>
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
             <div>
               <label class="">
-              Company id
-              <input
-                type="text"
-                name="userId"
-                onChange={handleChange}
-                value={startup.userId}
-                ref={register({ required: true, maxLength: 80 })}
-              />
-            </label> 
+                Company id
+                <input
+                  type="text"
+                  name="userId"
+                  onChange={handleChange}
+                  value={startup.userId}
+                  ref={register({ required: true, maxLength: 80 })}
+                />
+              </label>
             </div>
             <label>
               Company name
@@ -91,7 +77,7 @@ const RegisterStartup = props => {
             </label>
           </div>
 
-          <div className='row3'>
+          <div className="row3">
             <label>
               Headline
               <input
@@ -131,8 +117,9 @@ const RegisterStartup = props => {
             </label>
 
             <label>
-              Security type              
-              <select className='select'
+              Security type
+              <select
+                className="select"
                 name="contract"
                 onChange={handleChange}
                 ref={register({ required: true })}
@@ -165,7 +152,7 @@ const RegisterStartup = props => {
           </div>
 
           <div className="range">
-            <h3>Set your minimum and maximum fundraising goals</h3>            
+            <h3>Set your minimum and maximum fundraising goals</h3>
             <label htmlFor="goalLow"></label>
             <input
               type="text"
@@ -173,19 +160,16 @@ const RegisterStartup = props => {
               onChange={handleChange}
               value={startup.goalLow}
               ref={register({ required: true })}
-            />{" "}
-
+            />{' '}
             <label htmlFor="goalHigh"></label>
             <input
               type="text"
-
-          
               name="goalHigh"
               onChange={handleChange}
               value={startup.goalHigh}
               ref={register({ required: true })}
             />
-            <GoalRange />
+            {/* <GoalRange /> */}
           </div>
 
           <div className="bottom">
@@ -219,23 +203,23 @@ const RegisterStartup = props => {
 
             <div className="fundraisingPeriod">
               <h3>When are you fundraising?</h3>
-              <label htmlFor='startDate'>START</label>
-                <input
-                  type="date"
-                  name="startDate"
-                  onChange={handleChange}
-                  value={startup.startDate}
-                  ref={register({ required: true })}
-                />
-              
-              <label htmlFor='endDate'>END</label>
-                <input
-                  type="date"
-                  name="endDate"
-                  onChange={handleChange}
-                  value={startup.endDate}
-                  ref={register({ required: true })}
-                />              
+              <label htmlFor="startDate">START</label>
+              <input
+                type="date"
+                name="startDate"
+                onChange={handleChange}
+                value={startup.startDate}
+                ref={register({ required: true })}
+              />
+
+              <label htmlFor="endDate">END</label>
+              <input
+                type="date"
+                name="endDate"
+                onChange={handleChange}
+                value={startup.endDate}
+                ref={register({ required: true })}
+              />
             </div>
           </div>
 
@@ -254,7 +238,7 @@ const RegisterStartup = props => {
           <button type="submit">REGISTER</button>
         </form>
       </div>
-      <img className="founderRegisterImage" src={Capture} />
+      <img className="founderRegisterImage" src={Capture} alt="Founder" />
     </div>
   );
 };
