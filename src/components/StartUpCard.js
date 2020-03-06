@@ -1,9 +1,7 @@
-
 import React from "react";
-import StartUpList from "./StartUpList"
-import styled from "styled-components"
+import StartUpList from "./StartUpList";
+import styled from "styled-components";
 import "./StartUpCard.css";
-
 
 // const ProjectNames = styled.h4`
 // position:relative;
@@ -53,25 +51,23 @@ import "./StartUpCard.css";
 // position:relative;
 // bottom:12%
 // `
-const StartUpCard = (props) => {
-  
+const StartUpCard = props => {
   return (
     <div>
       <div>
-      <img className="swan" src="../images/logo1.png"/>
- 
-
+        <img className="swan" src="../images/logo1.png" />
       </div>
 
+      <h4>{props.startUp.projectName}</h4>
 
-    <h4>{props.startUp.projectName}</h4>
-    
-      <p>{props.startUp.contract} contract, thats {props.startUp.discount}% off</p>
- <p> {props.startUp.country}, {props.startUp.state} {props.startUp.city}</p>
-     
-      
+      <p>
+        {props.startUp.contract} contract, thats {props.startUp.discount}% off
+      </p>
+      <p>
+        {" "}
+        {props.startUp.country}, {props.startUp.state} {props.startUp.city}
+      </p>
     </div>
-    
   );
 };
 

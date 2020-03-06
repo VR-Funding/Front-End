@@ -14,19 +14,29 @@ const RegisterStartup = props => {
   const { register, handleSubmit, errors } = useForm();
 
  
-  const {startup, updateStartup}=useContext(registerFormContext)
+  const {startup, setStartup}=useContext(registerFormContext)
+  
+    const userIdLocal = JSON.parse(window.localStorage.getItem("userId"));
+    const userIdString = JSON.stringify(userIdLocal)
+    
+
+
 
   const handleChange = e => {
-    const userIdLocal = window.localStorage.getItem("userId");
-    updateStartup({...startup, userId:JSON.parse(userIdLocal) , [e.target.name]: e.target.value})
+   
     
+      setStartup({
+        userId:userIdString, 
+        [e.target.name]: e.target.value
+      });
+   
   };
 
   const onSubmit = data => {
-
-    
+   
+    console.log(window.localStorage.getItem("userId"))
     axiosWithAuth()
-      .post("startups", startup)
+      .post("https://venture-backend.herokuapp.com/api/startups", data)
       .then(res => {
         console.log(res);
         props.history.push("founder-dashboard");
@@ -41,16 +51,16 @@ const RegisterStartup = props => {
         <form className='form' onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
             <div>
-              <label>
+              {/* <label class="">
               Company id
               <input
-                type="number"
+                type="text"
                 name="userId"
                 onChange={handleChange}
                 value={startup.userId}
                 ref={register({ required: true, maxLength: 80 })}
               />
-            </label> 
+            </label>  */}
             </div>
             <label>
               Company name
@@ -78,7 +88,7 @@ const RegisterStartup = props => {
             <label>
               Valuation Cap
               <input
-                type="number"
+                type="text"
                 name="valuationCap"
                 onChange={handleChange}
                 value={startup.valuationCap}
@@ -93,7 +103,7 @@ const RegisterStartup = props => {
             <label>
               Minimum investment
               <input
-                type="number"
+                type="text"
                 name="minInvestment"
                 step="100"
                 min="0"
@@ -121,7 +131,7 @@ const RegisterStartup = props => {
             <label>
               Investor discount
               <input
-                type="number"
+                type="text"
                 name="discount"
                 onChange={handleChange}
                 value={startup.discount}
@@ -141,15 +151,18 @@ const RegisterStartup = props => {
             <h3>Set your minimum and maximum fundraising goals</h3>            
             <label htmlFor="goalLow"></label>
             <input
-              type="number"
+              type="text"
               name="goalLow"
               onChange={handleChange}
               value={startup.goalLow}
               ref={register({ required: true })}
             />{" "}
+
             <label htmlFor="goalHigh"></label>
-            <input className='goalHigh'
-              type="number"
+            <input
+              type="text"
+
+          
               name="goalHigh"
               onChange={handleChange}
               value={startup.goalHigh}
@@ -206,16 +219,9 @@ const RegisterStartup = props => {
                   value={startup.endDate}
                   ref={register({ required: true })}
                 />
-              
-              <label htmlFor='postDate'>POST</label>
-                <input
-                  type="date"
-                  name="postDate"
-                  onChange={handleChange}
-                  value={startup.postDate}
-                  ref={register({ required: true })}
-                />
-              
+
+              </label>
+
             </div>
           </div>
 
