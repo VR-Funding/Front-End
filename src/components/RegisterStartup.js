@@ -66,8 +66,8 @@ const RegisterStartup = props => {
         <h1> Create your Project </h1>
         <form className='form' onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
-            <div>
-              {/* <label class="">
+            {/* <div>
+              <label class="">
               Company id
               <input
                 type="text"
@@ -76,8 +76,8 @@ const RegisterStartup = props => {
                 value={startup.userId}
                 ref={register({ required: true, maxLength: 80 })}
               />
-            </label>  */}
-            </div>
+            </label> 
+            </div> */}
             <label>
               Company name
               <input
@@ -88,9 +88,6 @@ const RegisterStartup = props => {
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
-          </div>
-
-          <div className='row3'>
             <label>
               Headline
               <input
@@ -163,6 +160,9 @@ const RegisterStartup = props => {
             </label>
           </div>
 
+          {/* <div className='row3'>            
+          </div> */}
+
           <div className="range">
             <h3>Set your minimum and maximum fundraising goals</h3>            
             <label htmlFor="goalLow"></label>
@@ -174,8 +174,8 @@ const RegisterStartup = props => {
               ref={register({ required: true })}
             />{" "}
 
-            <label htmlFor="goalHigh"></label>
-            <input
+            <label  htmlFor="goalHigh"></label>
+            <input className='goalHigh'
               type="text"
 
           
