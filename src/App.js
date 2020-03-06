@@ -21,7 +21,7 @@ import { authContext } from './components/contexts/authContext';
 
 function App() {
   const initialStartupState = {
-    id: undefined,
+    id: 0,
     userId:
       localStorage.getItem('token') === null
         ? undefined
