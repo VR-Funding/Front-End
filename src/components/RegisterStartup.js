@@ -16,8 +16,8 @@ const RegisterStartup = props => {
  
   const {startup, setStartup}=useContext(registerFormContext)
   
-    // const userIdLocal = JSON.parse(window.localStorage.getItem("userId"));
-    // const userIdString = JSON.stringify(userIdLocal)
+    const userIdLocal = JSON.parse(window.localStorage.getItem("userId"));
+    const userIdString = JSON.stringify(userIdLocal)
     
 
 
@@ -26,7 +26,7 @@ const RegisterStartup = props => {
    
     
       setStartup({
-        // userId:userIdString, 
+         userId:userIdString, 
         [e.target.name]: e.target.value
       });
    

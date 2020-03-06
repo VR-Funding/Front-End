@@ -21,7 +21,7 @@ const EditForm = props => {
     
 // },[])
   const handleChange = e => {
-    props.setStartUps({
+    props.setStartUp({
       ...props.startUps,
       [e.target.name]: e.target.value
     });

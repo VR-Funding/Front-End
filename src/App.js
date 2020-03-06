@@ -19,8 +19,8 @@ import { registerFormContext } from './components/contexts/registerFormContext'
 
 function App() {
   const initialState = {
-    userId: localStorage.getItem("token").length === 0 ? undefined : localStorage.getItem("userId"),
-    // userId: 10,
+    // userId: localStorage.getItem("token").length === 0 ? undefined : localStorage.getItem("userId"),
+    userId: 10,
     projectName: "",
     headline: "",
     valuationCap: "",
