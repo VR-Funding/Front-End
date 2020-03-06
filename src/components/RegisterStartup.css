@@ -1,12 +1,7 @@
-.container {
+.container, .bottom {
     display: flex;    
     justify-content: space-evenly; 
     
-}
-
-.bottom {
-    display: flex;    
-    justify-content: space-evenly;
 }
 
 h3, label {
@@ -23,7 +18,7 @@ input {
     border-radius: 20px;
     width: 70%;
     font-size: 1.1rem;
-    margin: 8px;
+    margin: 8px 0;
 }
 
 .select {
@@ -48,6 +43,10 @@ input {
 
 .range {    
     background-color: rgb(212, 244, 255);
+}
+
+.range .goalHigh {
+    margin-bottom: 20px;
 }
 
 .companyLocation, .fundraisingPeriod {

@@ -138,8 +138,7 @@ const RegisterStartup = props => {
           </div>
 
           <div className="range">
-            <h3>Set your minimum and maximum fundraising goals</h3>
-            <br></br>
+            <h3>Set your minimum and maximum fundraising goals</h3>            
             <label htmlFor="goalLow"></label>
             <input
               type="number"
@@ -149,7 +148,7 @@ const RegisterStartup = props => {
               ref={register({ required: true })}
             />{" "}
             <label htmlFor="goalHigh"></label>
-            <input
+            <input className='goalHigh'
               type="number"
               name="goalHigh"
               onChange={handleChange}
