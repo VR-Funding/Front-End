@@ -96,3 +96,7 @@ input {
   padding-right: 90px;
   position: relative;
 }
+
+.hide {
+  display: none;
+}

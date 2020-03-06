@@ -38,10 +38,12 @@ const RegisterStartup = props => {
   };
 
   const onSubmit = data => {
+    console.log(data);
     axiosWithAuth()
       .post('startups', data)
       .then(res => {
         console.log(res.data[0]);
+        setStartup({ ...startup, id: res.data[0].id });
         window.localStorage.setItem('startupId', res.data[0].id);
         props.history.push('founder-dashboard');
       });
@@ -53,18 +55,16 @@ const RegisterStartup = props => {
         <h1> Create your Project </h1>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
-            <div>
-              <label class="">
-                Company id
-                <input
-                  type="text"
-                  name="userId"
-                  onChange={handleChange}
-                  value={startup.userId}
-                  ref={register({ required: true, maxLength: 80 })}
-                />
-              </label>
-            </div>
+            <label class="hide">
+              Company id
+              <input
+                type="text"
+                name="userId"
+                onChange={handleChange}
+                value={startup.userId}
+                ref={register({ required: true, maxLength: 80 })}
+              />
+            </label>
             <label>
               Company name
               <input
