@@ -14,7 +14,7 @@ const FounderDashboard = () => {
       return (
         <div className='container'>
             <div className='sidebar'>
-                <div>
+                <div className='greet'>
                     <img src=''/>
                     <h3>Hello,<br/>Karen</h3>
                 </div>
@@ -32,8 +32,10 @@ const FounderDashboard = () => {
                 <div className='investors'>
                     <h3>Total investors:<p>0</p></h3>            
                     <h3>Time left:<p>0 DAYS</p></h3>
-                </div>               
-                <h2><span>Location: </span>Denver, COLORADO</h2>
+                </div>
+                <div className='location'>             
+                    <h2><span>Location: </span>Denver, COLORADO</h2>
+                </div>
                 <div className='buttons'>
                     <button onClick={()=> setShowModal(!showModal)}>EDIT</button>
                     <button>DELETE</button>

@@ -1,6 +1,7 @@
 .container, .bottom {
-    display: flex;
-    justify-content: space-evenly;
+    display: flex;    
+    justify-content: space-evenly; 
+    
 }
 
 h3, label {
@@ -8,42 +9,44 @@ h3, label {
     align-self: flex-start;
 }
 
-form {
-    width: 45vw;
+.form {
+    width: 47vw;
 }
 
 input {
-    height: 35px;
+    height: 25px;
     border-radius: 20px;
     width: 70%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin: 8px 0;
 }
 
-select {
-    height: 35px;
+.select {
+    height: 25px;
     border-radius: 20px;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .founderRegisterImage {    
-    height: 70vh;
+    height: 80vh;
     /* position: relative; */
     margin: 100px 0;
     padding: 10px;
-    width: 45vw;
-    bottom: 40px;
+    width: 47vw;    
 }
 
-.row1, .row2 {
+.row1, .row2, .row3 {
     display: flex;
-    justify-content: space-between; 
-    margin: 5px 0;
+    justify-content: space-between;     
 }
 
-.range {
-    margin: 10px 0;
+.range {    
     background-color: rgb(212, 244, 255);
+}
+
+.range .goalHigh {
+    margin-bottom: 20px;
 }
 
 .companyLocation, .fundraisingPeriod {
@@ -52,7 +55,7 @@ select {
 }
 
 .emailInput {
-    width: 80%;
+    width: 70%;
 }
 
 button {    
