@@ -1,5 +1,15 @@
-.container, .investors, .buttons {
-    display: flex;  
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.investors {
+    display: flex;
+    margin: 30px 0;
+}
+
+.location {
+    margin: 20px 0;
 }
 
 nav, .sidebar, .main {
@@ -7,10 +17,16 @@ nav, .sidebar, .main {
     flex-direction: column;
 }
 
+.greet {
+    border: darkblue 1px solid;
+    padding: 15px 60px;
+}
+
 a {
     text-decoration: none;
-    margin: 30px 0;
     font-size: 1.5rem;
+    padding: 25px;
+    border: darkblue 1px solid;
 }
 
 .main {
@@ -36,11 +52,16 @@ a {
 
 .investors h3 {
     text-align: center;
-    margin: 0 30px;
+    margin: 0 40px;
 }
 
-.main button {
-    margin: 20px 0;
+.investors p {
+    font-size: 2rem;
+}
+
+.main .buttons {
+    display: flex;
+    margin: 20px 0;    
 }
 
 

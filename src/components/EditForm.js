@@ -162,7 +162,7 @@ const EditForm = props => {
               ref={register({ required: true })}
             />{" "}
             <label htmlFor="goalHigh">CITY</label>
-            <input
+            <input className='goalHigh'
               type="number"
               name="goalHigh"
               onChange={handleChange}

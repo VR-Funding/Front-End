@@ -46,7 +46,7 @@ background-color: rgba(0, 0, 0, 0.1);
   padding-left: 90px;
 } */
 
-form {
+/* form {
   display: flex;
   flex-direction: column;
   width: 20vw;
@@ -63,7 +63,7 @@ input {
   margin: 5px;
   font-size: 25px;
   border-radius: 2px;
-}
+} */
 .top-h1 {
   margin: 0px;
   padding: 10px;

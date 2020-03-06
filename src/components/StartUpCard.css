@@ -1,17 +1,14 @@
-div {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
+
+
+/* div{
+    display: flex;
+    flex-wrap:wrap;
+margin:10px;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 6px;
-}
+h1,h2,h3,h4,h5,h6,p{
+margin: 6px;
+} */
+
 
 /* .sc-AxiKw.cpCTGz.imgg{
     width: 26vw;
@@ -19,31 +16,33 @@ p {
     
     bottom: 3%;
 } */
-.swan {
-  width: 4vw;
-  position: relative;
-  bottom: 8%;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  left: 10%;
+
+/* .swan{
+    width: 4vw;
+    position: relative;
+    bottom: 8%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    left: 10%;
 }
-body {
-  overflow-x: hidden;
-}
-.trending {
-  position: relative;
-  height: 1px;
-  width: 100vw;
-  margin: 0;
-  line-height: 1.5;
-  padding: 40px;
-  right: 40%;
-}
-.moveup {
-  width: 100vw;
-  position: relative;
-  left: 3%;
-}
-.rights {
-  color: hotpink;
-}
+body{
+    overflow-x: hidden;
+    }
+    .trending{
+        position: relative;
+        height: 1px;
+        width: 100vw;
+        margin: 0;
+        line-height:1.5 ;
+        padding:40px;
+        right: 40%;
+    }
+  .moveup{
+      width: 100vw;
+      position: relative;
+      left: 3%;
+  }
+  .rights{
+      color: hotpink;
+  } */
+
