@@ -41,7 +41,7 @@ function App() {
  
   return (
     <div className="App">
-      <registerFormContext.Provider value={{startup, updateStartup, setStartup}}>
+      <registerFormContext.Provider value={{startup, setStartup}}>
       <Router>
         <Navigation />
         <Switch>
