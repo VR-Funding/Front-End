@@ -48,7 +48,7 @@ const RegisterStartup = props => {
     <div className="container">
       <div>
         <h1> Create your Project </h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className='form' onSubmit={handleSubmit(onSubmit)}>
           <div className="row1">
             <div>
               {/* <label class="">
@@ -72,6 +72,9 @@ const RegisterStartup = props => {
                 ref={register({ required: true, maxLength: 80 })}
               />
             </label>
+          </div>
+
+          <div className='row3'>
             <label>
               Headline
               <input
@@ -111,8 +114,8 @@ const RegisterStartup = props => {
             </label>
 
             <label>
-              Security type
-              <select
+              Security type              
+              <select className='select'
                 name="contract"
                 onChange={handleChange}
                 ref={register({ required: true })}
@@ -145,9 +148,8 @@ const RegisterStartup = props => {
           </div>
 
           <div className="range">
-            <h3>Set your minimum and maximum fundraising goals</h3>
-            <br></br>
-            <label htmlFor="goalLow">CITY</label>
+            <h3>Set your minimum and maximum fundraising goals</h3>            
+            <label htmlFor="goalLow"></label>
             <input
               type="text"
               name="goalLow"
@@ -155,9 +157,12 @@ const RegisterStartup = props => {
               value={startup.goalLow}
               ref={register({ required: true })}
             />{" "}
-            <label htmlFor="goalHigh">CITY</label>
+
+            <label htmlFor="goalHigh"></label>
             <input
               type="text"
+
+          
               name="goalHigh"
               onChange={handleChange}
               value={startup.goalHigh}
@@ -197,8 +202,7 @@ const RegisterStartup = props => {
 
             <div className="fundraisingPeriod">
               <h3>When are you fundraising?</h3>
-              <label>
-                START
+              <label htmlFor='startDate'>START</label>
                 <input
                   type="date"
                   name="startDate"
@@ -206,9 +210,8 @@ const RegisterStartup = props => {
                   value={startup.startDate}
                   ref={register({ required: true })}
                 />
-              </label>
-              <label>
-                END
+              
+              <label htmlFor='endDate'>END</label>
                 <input
                   type="date"
                   name="endDate"
@@ -216,17 +219,9 @@ const RegisterStartup = props => {
                   value={startup.endDate}
                   ref={register({ required: true })}
                 />
+
               </label>
-              {/* <label>
-                POST
-                <input
-                  type="date"
-                  name="postDate"
-                  onChange={handleChange}
-                  value={startup.postDate}
-                  ref={register({ required: true })}
-                />
-              </label> */}
+
             </div>
           </div>
 
